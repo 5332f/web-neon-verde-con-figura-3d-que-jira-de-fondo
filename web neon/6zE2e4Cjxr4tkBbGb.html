@@ -1,0 +1,278 @@
+<html><head><base href="https://quantum-nexus.ai/">
+<title>eramientas cripto y mas</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #000011;
+    color: #00ff00;
+    overflow: hidden;
+  }
+  #quantum-interface {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  #main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px #000000, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+  .invention-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+  }
+  .invention {
+    background: rgba(0, 30, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .invention:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+  .invention h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 0;
+  }
+  .invention-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  #social-media-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 30, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    padding: 15px;
+    z-index: 30;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .social-icon {
+    font-size: 24px;
+    color: #00ff00;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+  .social-icon:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+  }
+  #motivational-quote {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: rgba(30, 27, 0, 0.7);
+    border: 2px solid #ffd900;
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 300px;
+    text-align: center;
+    font-style: italic;
+    color: #ffff00;
+  }
+</style>
+</head>
+<body>
+<div id="quantum-interface">
+  <h1 id="main-title">HERRAMIENTAS CRIPTO Y MAS...</h1>
+  <div class="invention-container">
+    <div class="invention" onclick="showDetails(0)">
+      <div class="invention-icon">🎲</div>
+      <h3>NeuroQuantum Interface</h3>
+    </div>
+    <div class="invention" onclick="showDetails(1)">
+      <div class="invention-icon">🔊</div>
+      <h3>Quantum Realm Viewer</h3>
+    </div>
+    <div class="invention" onclick="showDetails(2)">
+      <div class="invention-icon">💰</div>
+      <h3>Nanobot Swarm Assembler</h3>
+    </div>
+    <div class="invention" onclick="showDetails(3)">
+      <div class="invention-icon">🚀</div>
+      <h3>Eco-Quantum Harmonizer</h3>
+    </div>
+    <div class="invention" onclick="showDetails(4)">
+      <div class="invention-icon">🧸</div>
+      <h3>Quantum Energy Synthesizer</h3>
+    </div>
+  </div>
+</div>
+
+<div id="social-media-icons">
+  <a href="https://x.com/Euoso12" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+  <a href="https://www.youtube.com/@tucripto" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+  <a href="https://t.me/cala_eloso" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+  <a href="https://canelacala.pro" target="_blank" class="social-icon"><i class="fas fa-globe"></i></a>
+</div>
+
+<div id="motivational-quote"></div>
+
+<script>
+const inventions = [
+  {
+    name: "NeuroQuantum Interface",
+    description: "...",
+    image: "imagen/1.png",
+    twitter: "https://tucripto.xyz"
+  },
+  {
+    name: "Quantum Realm Viewer",
+    description: "...",
+    image: "imagen/6.png",
+    twitter: "https://texto-vos.netlify.app"
+  },
+  {
+    name: "Nanobot Swarm Assembler",
+    description: "...",
+    image: "imagen/1.png",
+    twitter: "https://t.me/cala_eloso"
+  },
+  {
+    name: "Eco-Quantum Harmonizer",
+    description: "...",
+    image: "imagen/4.png",
+    twitter: "https://t.me/cala_eloso"
+  },
+  {
+    name: "Quantum Energy Synthesizer",
+    description: "...",
+    image: "imagen/5.png",
+    twitter: "https://t.me/cala_eloso"
+  }
+];
+
+function showDetails(index) {
+  const invention = inventions[index];
+  window.open(invention.twitter, '_blank');
+}
+
+// Three.js background
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.insertBefore(renderer.domElement, document.body.firstChild);
+
+const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+const torusKnot = new THREE.Mesh(geometry, material);
+scene.add(torusKnot);
+
+camera.position.z = 30;
+
+function animate() {
+  requestAnimationFrame(animate);
+  torusKnot.rotation.x += 0.01;
+  torusKnot.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+animate();
+
+// GSAP animations
+gsap.from('.invention', {
+  duration: 1,
+  opacity: 0,
+  y: 50,
+  stagger: 0.2,
+  ease: 'power3.out'
+});
+
+gsap.to('.invention', {
+  duration: 2,
+  y: '10px',
+  repeat: -1,
+  yoyo: true,
+  ease: 'sine.inOut',
+  stagger: {
+    each: 0.5,
+    from: 'random'
+  }
+});
+
+gsap.from('.social-icon', {
+  duration: 1,
+  opacity: 0,
+  x: 50,
+  stagger: 0.2,
+  ease: 'power3.out'
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Motivational quotes
+const motivationalQuotes = [
+  "Sigenos en las Redes",
+  "REGALAMOS CRIPTO EN CADA VIDEO DE YOUTUBE",
+  "EN TELEGRAM INFORMAMOS DE NOVEDADES DE CRIPTO",
+  "EN TWITTER-X TENEMOS LOS ULTIMOS NOTISIAS",
+  "EN LA WEB DE CANELA-CALA SABRAS MAS SOBRE EL PROYECTO",
+  "EN EL CANAL DE YOUTUBE SUBIMOS VIDESOS TODA LA SEMANA",
+  "SIGENOS PARA GANAR CRIPTOMONEDAS GRATIS",
+  "TE REGALO MONEDAS CRIPTO Y MAS",
+  "APRENDE SOBRE EL MUNDO DE LAS CRIPTOMONEDAS",
+  "TODAS ESTAS ERAMIETAS TE SERVIRAN PARA APREDER"
+];
+
+function showMotivationalQuote() {
+  const quoteElement = document.getElementById('motivational-quote');
+  const randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
+  quoteElement.textContent = randomQuote;
+  
+  // Animate the quote
+  gsap.from(quoteElement, {
+    duration: 1,
+    opacity: 0,
+    y: 20,
+    ease: 'power2.out'
+  });
+}
+
+// Show a motivational quote every 10 seconds
+showMotivationalQuote();
+setInterval(showMotivationalQuote, 10000);
+
+// Add hover effects to social media icons
+const socialIcons = document.querySelectorAll('.social-icon');
+socialIcons.forEach(icon => {
+  icon.addEventListener('mouseenter', () => {
+    gsap.to(icon, {duration: 0.3, scale: 1.2, color: '#ffffff'});
+  });
+  icon.addEventListener('mouseleave', () => {
+    gsap.to(icon, {duration: 0.3, scale: 1, color: '#00ff00'});
+  });
+});
+</script>
+</body></html>
